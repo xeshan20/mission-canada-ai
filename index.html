@@ -74,7 +74,9 @@ AI Job Assistant for Canada LMIA & Visa Sponsorship Jobs
 
 <p>⭐ High Match Jobs: 0</p>
 
-<p>📨 Applications Sent: 0</p>
+<p>📨 Applications Sent:
+<span id="applicationCount">0</span>
+</p>
 
 
 </div>
@@ -499,7 +501,7 @@ Delete
 
 
 table.innerHTML += row;
-
+document.getElementById("applicationCount").innerText = applications.length;
 });
 
 }
