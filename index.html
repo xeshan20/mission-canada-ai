@@ -408,7 +408,7 @@ style="width:100%;padding:10px;margin-top:10px;"
 </select>
 
 
-<button>Save Application</button>
+<button onclick="saveApplication()">Save Application</button>
 
 
 </div>
@@ -422,7 +422,45 @@ style="width:100%;padding:10px;margin-top:10px;"
 
 
 
+<script>
 
+function saveApplication(){
+
+let job = document.querySelector('input[placeholder="Example: Warehouse Worker"]').value;
+
+let company = document.querySelector('input[placeholder="Company"]').value;
+
+let status = document.querySelector('select').value;
+
+
+if(job==""){
+alert("Please enter job title");
+return;
+}
+
+
+let application = {
+job: job,
+company: company,
+status: status
+};
+
+
+let applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+
+applications.push(application);
+
+
+localStorage.setItem("applications", JSON.stringify(applications));
+
+
+alert("Application Saved Successfully ✅");
+
+}
+
+
+</script>
 </body>
 
 </html>
