@@ -475,6 +475,7 @@ applications.forEach(function(app){
 
 let row = `
 <tr>
+
 <td style="border:1px solid #ddd;padding:10px;">
 ${app.job}
 </td>
@@ -487,7 +488,14 @@ ${app.company}
 ${app.status}
 </td>
 
+<td style="border:1px solid #ddd;padding:10px;">
+<button onclick="deleteApplication(${applications.indexOf(app)})">
+Delete
+</button>
+</td>
+
 </tr>
+`;
 `;
 
 table.innerHTML += row;
