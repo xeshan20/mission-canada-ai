@@ -459,7 +459,45 @@ alert("Application Saved Successfully ✅");
 
 }
 
+function loadApplications(){
 
+let applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+let table = document.getElementById("applicationTable");
+
+if(!table){
+return;
+}
+
+table.innerHTML = "";
+
+applications.forEach(function(app){
+
+let row = `
+<tr>
+<td style="border:1px solid #ddd;padding:10px;">
+${app.job}
+</td>
+
+<td style="border:1px solid #ddd;padding:10px;">
+${app.company}
+</td>
+
+<td style="border:1px solid #ddd;padding:10px;">
+${app.status}
+</td>
+
+</tr>
+`;
+
+table.innerHTML += row;
+
+});
+
+}
+
+
+window.onload = loadApplications;
 </script>
 </body>
 
