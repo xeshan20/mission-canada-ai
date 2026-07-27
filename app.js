@@ -17,3 +17,18 @@ themeBtn.addEventListener("click", function () {
     }
 
 });
+const signupBtn = document.getElementById("signupBtn");
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+signupBtn.onclick = () => {
+    alert("Signup button connected ✅");
+};
+
+loginBtn.onclick = () => {
+    alert("Login button connected ✅");
+};
+
+logoutBtn.onclick = () => {
+    alert("Logout button connected ✅");
+};
