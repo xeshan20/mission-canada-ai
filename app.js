@@ -1,25 +1,106 @@
-// ===============================
-// Mission Canada AI - app.js
-// Part 1
-// ===============================
+// ===========================================
+// Mission Canada AI
+// app.js
+// PART 1
+// ===========================================
 
-// Theme Button
+// Theme
 
 const themeBtn = document.getElementById("themeBtn");
 
-if (themeBtn) {
+if(themeBtn){
 
-themeBtn.addEventListener("click", function () {
+themeBtn.addEventListener("click",()=>{
 
-if(document.body.classList.contains("dark")){
+document.body.classList.toggle("dark");
 
-document.body.classList.remove("dark");
-themeBtn.innerHTML="🌙";
+themeBtn.innerHTML =
+document.body.classList.contains("dark")
+? "☀️"
+: "🌙";
 
-}else{
+});
 
-document.body.classList.add("dark");
-themeBtn.innerHTML="☀️";
+}
+
+
+// ===========================================
+// Login Elements
+// ===========================================
+
+const email =
+document.getElementById("email");
+
+const password =
+document.getElementById("password");
+
+const signupBtn =
+document.getElementById("signupBtn");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+
+// ===========================================
+// Helper Functions
+// ===========================================
+
+function showSuccess(message){
+
+alert("✅ " + message);
+
+}
+
+function showError(message){
+
+alert("❌ " + message);
+
+}
+
+function clearFields(){
+
+if(email) email.value="";
+
+if(password) password.value="";
+
+
+} 
+// ===========================================
+// Firebase Signup
+// ===========================================
+
+if(signupBtn){
+
+signupBtn.addEventListener("click", async ()=>{
+
+const userEmail = email.value.trim();
+const userPassword = password.value.trim();
+
+if(userEmail==="" || userPassword===""){
+
+showError("Please enter Email & Password");
+return;
+
+}
+
+try{
+
+await window.createUserWithEmailAndPassword(
+window.auth,
+userEmail,
+userPassword
+);
+
+showSuccess("Account Created Successfully");
+
+clearFields();
+
+}catch(error){
+
+showError(error.message);
 
 }
 
@@ -28,83 +109,116 @@ themeBtn.innerHTML="☀️";
 }
 
 
-// Login Elements
 
-const signupBtn=document.getElementById("signupBtn");
-const loginBtn=document.getElementById("loginBtn");
-const logoutBtn=document.getElementById("logoutBtn");
+// ===========================================
+// Firebase Login
+// ===========================================
 
-const email=document.getElementById("email");
-const password=document.getElementById("password");
-r// ===============================
-// Firebase Signup
-// ===============================
+if(loginBtn){
 
-if(signupBtn){
-
-signupBtn.onclick = async function(){
+loginBtn.addEventListener("click", async ()=>{
 
 const userEmail = email.value.trim();
 const userPassword = password.value.trim();
 
-if(userEmail=="" || userPassword==""){
+if(userEmail==="" || userPassword===""){
 
-alert("Please enter Email & Password");
+showError("Please enter Email & Password");
 return;
 
 }
 
 try{
 
-await createUserWithEmailAndPassword(auth,userEmail,userPassword);
+await window.signInWithEmailAndPassword(
+window.auth,
+userEmail,
+userPassword
+);
 
-alert("✅ Account Created Successfully");
-
-email.value="";
-password.value="";
+showSuccess("Login Successful");
 
 }catch(error){
 
-alert(error.message);
+showError(error.message);
 
 }
 
-};
+});
 
 }
+// ===========================================
+// Firebase Logout
+// ===========================================
 
+if(logoutBtn){
 
-
-// ===============================
-// Firebase Login
-// ===============================
-
-if(loginBtn){
-
-loginBtn.onclick = async function(){
-
-const userEmail=email.value.trim();
-const userPassword=password.value.trim();
-
-if(userEmail=="" || userPassword==""){
-
-alert("Please enter Email & Password");
-return;
-
-}
+logoutBtn.addEventListener("click", async ()=>{
 
 try{
 
-await signInWithEmailAndPassword(auth,userEmail,userPassword);
+await window.signOut(window.auth);
 
-alert("✅ Login Successful");
+showSuccess("Logged Out Successfully");
+
+clearFields();
 
 }catch(error){
 
-alert(error.message);
+showError(error.message);
 
 }
 
-};
+});
 
 }
+
+
+// ===========================================
+// User Session
+// ===========================================
+
+if(window.auth){
+
+window.auth.onAuthStateChanged?.((user)=>{
+
+const welcome=document.querySelector("h2");
+
+if(!welcome) return;
+
+if(user){
+
+welcome.innerHTML="Welcome " + user.email;
+
+}else{
+
+welcome.innerHTML="Welcome Muhammad Zeeshan";
+
+}
+
+});
+
+}
+
+
+// ===========================================
+// Application Counter
+// ===========================================
+
+const count=document.getElementById("applicationCount");
+
+if(count){
+
+const apps=
+JSON.parse(localStorage.getItem("applications"))||[];
+
+count.innerText=apps.length;
+
+}
+
+
+// ===========================================
+// app.js Finished
+// ===========================================
+
+console.log("Mission Canada AI Loaded Successfully 🚀");
