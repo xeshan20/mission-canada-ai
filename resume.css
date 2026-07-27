@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mission Canada AI - Resume Builder</title>
+
+<link rel="stylesheet" href="resume.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Mission Canada AI</h1>
+
+<h2>Canadian ATS Resume Builder</h2>
+
+<form id="resumeForm">
+
+<input type="text" id="fullName" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="text" id="phone" placeholder="Phone Number" required>
+
+<input type="text" id="address" placeholder="Address">
+
+<textarea id="summary" placeholder="Professional Summary"></textarea>
+
+<textarea id="experience" placeholder="Work Experience"></textarea>
+
+<textarea id="education" placeholder="Education"></textarea>
+
+<textarea id="skills" placeholder="Skills"></textarea>
+
+<button type="submit">
+
+Generate Resume
+
+</button>
+
+</form>
+
+</div>
+
+<script src="resume.js"></script>
+
+</body>
+
+</html>
