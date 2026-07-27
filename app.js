@@ -4,13 +4,15 @@
 // PART 1
 // ===========================================
 
-// Theme
+// ===============================
+// Theme Mode
+// ===============================
 
 const themeBtn = document.getElementById("themeBtn");
 
-if(themeBtn){
+if (themeBtn) {
 
-themeBtn.addEventListener("click",()=>{
+themeBtn.addEventListener("click", () => {
 
 document.body.classList.toggle("dark");
 
@@ -23,30 +25,20 @@ document.body.classList.contains("dark")
 
 }
 
+// ===============================
+// Firebase Elements
+// ===============================
 
-// ===========================================
-// Login Elements
-// ===========================================
+const email = document.getElementById("email");
+const password = document.getElementById("password");
 
-const email =
-document.getElementById("email");
+const signupBtn = document.getElementById("signupBtn");
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 
-const password =
-document.getElementById("password");
-
-const signupBtn =
-document.getElementById("signupBtn");
-
-const loginBtn =
-document.getElementById("loginBtn");
-
-const logoutBtn =
-document.getElementById("logoutBtn");
-
-
-// ===========================================
+// ===============================
 // Helper Functions
-// ===========================================
+// ===============================
 
 function showSuccess(message){
 
@@ -66,8 +58,38 @@ if(email) email.value="";
 
 if(password) password.value="";
 
+}
 
-} 
+// ===============================
+// Application Table
+// ===============================
+
+const table =
+document.getElementById("applicationTable");
+
+const count =
+document.getElementById("applicationCount");
+
+// ===============================
+// Local Storage
+// ===============================
+
+function getApplications(){
+
+return JSON.parse(
+localStorage.getItem("applications")
+) || [];
+
+}
+
+function saveApplications(data){
+
+localStorage.setItem(
+"applications",
+JSON.stringify(data)
+);
+
+}
 // ===========================================
 // Firebase Signup
 // ===========================================
@@ -82,6 +104,7 @@ const userPassword = password.value.trim();
 if(userEmail==="" || userPassword===""){
 
 showError("Please enter Email & Password");
+
 return;
 
 }
@@ -124,6 +147,7 @@ const userPassword = password.value.trim();
 if(userEmail==="" || userPassword===""){
 
 showError("Please enter Email & Password");
+
 return;
 
 }
@@ -147,6 +171,9 @@ showError(error.message);
 });
 
 }
+
+
+
 // ===========================================
 // Firebase Logout
 // ===========================================
@@ -172,29 +199,102 @@ showError(error.message);
 });
 
 }
-
-
 // ===========================================
-// User Session
+// Load Applications
 // ===========================================
 
-if(window.auth){
+function loadApplications(){
 
-window.auth.onAuthStateChanged?.((user)=>{
+if(!table) return;
 
-const welcome=document.querySelector("h2");
+const applications = getApplications();
 
-if(!welcome) return;
+table.innerHTML = "";
 
-if(user){
+applications.forEach((application,index)=>{
 
-welcome.innerHTML="Welcome " + user.email;
+const row = `
 
-}else{
+<tr>
 
-welcome.innerHTML="Welcome Muhammad Zeeshan";
+<td>${application.company}</td>
+
+<td>${application.position}</td>
+
+<td>${application.status}</td>
+
+<td>${application.date}</td>
+
+<td>
+
+<button onclick="deleteApplication(${index})">
+
+🗑 Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+table.innerHTML += row;
+
+});
+
+if(count){
+
+count.innerText = applications.length;
 
 }
+
+}
+
+
+// ===========================================
+// Add Application
+// ===========================================
+
+const applicationForm =
+document.getElementById("applicationForm");
+
+if(applicationForm){
+
+applicationForm.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const company =
+document.getElementById("company").value;
+
+const position =
+document.getElementById("position").value;
+
+const status =
+document.getElementById("status").value;
+
+const date =
+document.getElementById("date").value;
+
+let applications = getApplications();
+
+applications.push({
+
+company,
+position,
+status,
+date
+
+});
+
+saveApplications(applications);
+
+applicationForm.reset();
+
+loadApplications();
+
+showSuccess("Application Saved");
 
 });
 
@@ -202,23 +302,32 @@ welcome.innerHTML="Welcome Muhammad Zeeshan";
 
 
 // ===========================================
-// Application Counter
+// Delete Application
 // ===========================================
 
-const count=document.getElementById("applicationCount");
+function deleteApplication(index){
 
-if(count){
+let applications = getApplications();
 
-const apps=
-JSON.parse(localStorage.getItem("applications"))||[];
+applications.splice(index,1);
 
-count.innerText=apps.length;
+saveApplications(applications);
+
+loadApplications();
 
 }
 
+window.deleteApplication = deleteApplication;
+
 
 // ===========================================
-// app.js Finished
+// Dashboard Counter
 // ===========================================
 
-console.log("Mission Canada AI Loaded Successfully 🚀");
+window.onload = ()=>{
+
+loadApplications();
+
+console.log("Mission Canada AI Ready 🚀");
+
+};
