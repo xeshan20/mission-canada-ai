@@ -22,7 +22,40 @@ const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
 signupBtn.onclick = async () => {
+loginBtn.onclick = async () => {
 
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try{
+
+        await signInWithEmailAndPassword(auth, email, password);
+
+        alert("Login Successful ✅");
+
+    }catch(error){
+
+        alert(error.message);
+
+    }
+
+};
+
+logoutBtn.onclick = async () => {
+
+    try{
+
+        await signOut(auth);
+
+        alert("Logged Out Successfully ✅");
+
+    }catch(error){
+
+        alert(error.message);
+
+    }
+
+};
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
