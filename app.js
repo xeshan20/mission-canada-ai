@@ -21,14 +21,21 @@ const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
-signupBtn.onclick = () => {
-    alert("Signup button connected ✅");
-};
+signupBtn.onclick = async () => {
 
-loginBtn.onclick = () => {
-    alert("Login button connected ✅");
-};
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-logoutBtn.onclick = () => {
-    alert("Logout button connected ✅");
+    try{
+
+        await createUserWithEmailAndPassword(auth, email, password);
+
+        alert("Account Created Successfully ✅");
+
+    }catch(error){
+
+        alert(error.message);
+
+    }
+
 };
