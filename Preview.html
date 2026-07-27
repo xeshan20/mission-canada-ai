@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resume Preview</title>
+
+<link rel="stylesheet" href="resume.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Mission Canada AI</h1>
+
+<h2>Your Canadian ATS Resume</h2>
+
+<pre id="resumePreview"></pre>
+
+<br>
+
+<button onclick="window.print()">
+
+🖨 Print / Save as PDF
+
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='resume.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script>
+
+const resume =
+localStorage.getItem("generatedResume");
+
+document.getElementById("resumePreview").textContent =
+resume || "No Resume Found.";
+
+</script>
+
+</body>
+
+</html>
