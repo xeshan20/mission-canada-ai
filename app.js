@@ -1,74 +1,38 @@
+// ===============================
+// Mission Canada AI - app.js
+// Part 1
+// ===============================
+
+// Theme Button
+
 const themeBtn = document.getElementById("themeBtn");
+
+if (themeBtn) {
 
 themeBtn.addEventListener("click", function () {
 
-    if (document.body.style.background == "black") {
+if(document.body.classList.contains("dark")){
 
-        document.body.style.background = "#f5f7fb";
-        document.body.style.color = "black";
-        themeBtn.innerHTML = "🌙";
+document.body.classList.remove("dark");
+themeBtn.innerHTML="🌙";
 
-    } else {
+}else{
 
-        document.body.style.background = "black";
-        document.body.style.color = "white";
-        themeBtn.innerHTML = "☀️";
+document.body.classList.add("dark");
+themeBtn.innerHTML="☀️";
 
-    }
+}
 
 });
-const signupBtn = document.getElementById("signupBtn");
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
 
-signupBtn.onclick = async () => {
-loginBtn.onclick = async () => {
+}
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
 
-    try{
+// Login Elements
 
-        await signInWithEmailAndPassword(auth, email, password);
+const signupBtn=document.getElementById("signupBtn");
+const loginBtn=document.getElementById("loginBtn");
+const logoutBtn=document.getElementById("logoutBtn");
 
-        alert("Login Successful ✅");
-
-    }catch(error){
-
-        alert(error.message);
-
-    }
-
-};
-
-logoutBtn.onclick = async () => {
-
-    try{
-
-        await signOut(auth);
-
-        alert("Logged Out Successfully ✅");
-
-    }catch(error){
-
-        alert(error.message);
-
-    }
-
-};
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    try{
-
-        await createUserWithEmailAndPassword(auth, email, password);
-
-        alert("Account Created Successfully ✅");
-
-    }catch(error){
-
-        alert(error.message);
-
-    }
-
-};
+const email=document.getElementById("email");
+const password=document.getElementById("password");
