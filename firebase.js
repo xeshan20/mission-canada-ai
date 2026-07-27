@@ -7,7 +7,9 @@ import {
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
-
+import {
+  getFirestore
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyBhxz6I9qiK_7vEcwcNwmcgFPFG2-C5pRc",
   authDomain: "mission-canada-ai.firebaseapp.com",
@@ -23,8 +25,9 @@ const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 window.auth = auth;
+window.db = db;
 window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
 window.signInWithEmailAndPassword = signInWithEmailAndPassword;
 window.signOut = signOut;
