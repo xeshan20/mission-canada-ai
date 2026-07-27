@@ -4,11 +4,12 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhxz6I9qiK_7vEcwcNwmcgFPFG2-C5pRc"
+  apiKey: "AIzaSyBhxz6I9qiK_7vEcwcNwmcgFPFG2-C5pRc",
   authDomain: "mission-canada-ai.firebaseapp.com",
   projectId: "mission-canada-ai",
   storageBucket: "mission-canada-ai.firebasestorage.app",
@@ -27,5 +28,5 @@ window.auth = auth;
 window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
 window.signInWithEmailAndPassword = signInWithEmailAndPassword;
 window.signOut = signOut;
-
+window.onAuthStateChanged = onAuthStateChanged;
 console.log("✅ Firebase Connected");
