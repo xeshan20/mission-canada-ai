@@ -1,8 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhxz6I9qiK_7vEcwcNwmcgFPFG2-C5pRc",
+  apiKey: "AIzaSyBhxz6I9qiK_7vEcwcNwmcgFPFG2-C5pRc"
   authDomain: "mission-canada-ai.firebaseapp.com",
   projectId: "mission-canada-ai",
   storageBucket: "mission-canada-ai.firebasestorage.app",
@@ -12,17 +18,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-console.log("✅ Firebase Connected Successfully");
-// Firebase Authentication
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+getAnalytics(app);
 
 const auth = getAuth(app);
 
@@ -30,3 +27,5 @@ window.auth = auth;
 window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
 window.signInWithEmailAndPassword = signInWithEmailAndPassword;
 window.signOut = signOut;
+
+console.log("✅ Firebase Connected");
