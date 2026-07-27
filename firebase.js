@@ -15,3 +15,18 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 console.log("✅ Firebase Connected Successfully");
+// Firebase Authentication
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const auth = getAuth(app);
+
+window.auth = auth;
+window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+window.signOut = signOut;
