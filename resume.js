@@ -99,3 +99,19 @@ alert("✅ Resume Generated Successfully!");
 window.location.href="preview.html";
 
 });
+const optimizeBtn = document.getElementById("optimizeBtn");
+
+if(optimizeBtn){
+
+optimizeBtn.addEventListener("click", function(){
+
+const summary = document.getElementById("summary");
+
+summary.value =
+"Dedicated and hardworking professional with experience in manufacturing, warehouse operations, production, logistics, material handling, quality control, and teamwork. Strong commitment to workplace safety, efficiency, and productivity. Seeking to contribute valuable skills to a Canadian employer while maintaining high standards of performance.";
+
+alert("✅ Canadian ATS Summary Added");
+
+});
+
+}
