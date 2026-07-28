@@ -1,3 +1,4 @@
+alert("resume.js Loaded");
 const resumeForm = document.getElementById("resumeForm");
 
 resumeForm.addEventListener("submit", function(e){
