@@ -115,3 +115,65 @@ alert("✅ Canadian ATS Summary Added");
 });
 
 }
+const jobCategory = document.getElementById("jobCategory");
+
+if(jobCategory && optimizeBtn){
+
+optimizeBtn.addEventListener("click", function(){
+
+switch(jobCategory.value){
+
+case "Warehouse Worker":
+
+document.getElementById("coreSkills").value =
+"Warehouse Operations\nInventory Management\nOrder Picking\nPacking\nLoading & Unloading\nSafety Procedures";
+
+break;
+
+case "General Labourer":
+
+document.getElementById("coreSkills").value =
+"Material Handling\nCleaning\nPackaging\nTeamwork\nPhysical Fitness\nQuality Control";
+
+break;
+
+case "Production Worker":
+
+document.getElementById("coreSkills").value =
+"Production Line\nMachine Operation\nQuality Inspection\nPackaging\nManufacturing\nSafety";
+
+break;
+
+case "Forklift Operator":
+
+document.getElementById("coreSkills").value =
+"Forklift Operation\nLoading\nWarehouse Safety\nInventory\nMaterial Handling";
+
+break;
+
+case "Driver":
+
+document.getElementById("coreSkills").value =
+"Long Distance Driving\nRoute Planning\nVehicle Inspection\nTime Management\nGPS Navigation";
+
+break;
+
+case "Machine Operator":
+
+document.getElementById("coreSkills").value =
+"Machine Operation\nPreventive Maintenance\nQuality Control\nSafety Compliance";
+
+break;
+
+case "Factory Worker":
+
+document.getElementById("coreSkills").value =
+"Assembly Line\nProduction\nPackaging\nMaterial Handling\nQuality Control";
+
+break;
+
+}
+
+});
+
+}
