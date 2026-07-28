@@ -1,6 +1,7 @@
 alert("resume.js Loaded");
 const resumeForm = document.getElementById("resumeForm");
-
+console.log(resumeForm);
+alert(resumeForm ? "Form Found ✅" : "Form Not Found ❌");
 resumeForm.addEventListener("submit", function(e){
 
 e.preventDefault();
