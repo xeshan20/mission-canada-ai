@@ -99,3 +99,58 @@ button:hover{
 background:#084298;
 
 }
+#resumePreview{
+
+max-width:850px;
+
+margin:auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:12px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+line-height:1.8;
+
+font-size:16px;
+
+color:#222;
+
+}
+
+#resumePreview h1{
+
+color:#0d6efd;
+
+border-bottom:3px solid #0d6efd;
+
+padding-bottom:10px;
+
+margin-bottom:20px;
+
+}
+
+#resumePreview h2{
+
+color:#0d6efd;
+
+margin-top:25px;
+
+margin-bottom:10px;
+
+border-left:5px solid #0d6efd;
+
+padding-left:10px;
+
+font-size:20px;
+
+}
+
+#resumePreview hr{
+
+margin:20px 0;
+
+}
