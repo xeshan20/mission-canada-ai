@@ -19,7 +19,8 @@ const coreSkills = document.getElementById("coreSkills").value;
 const languages = document.getElementById("languages").value;
 
 const certifications = document.getElementById("certifications").value;
-const resume = `
+const jobTitle = document.getElementById("jobTitle").value;
+  const resume = `
 
 ==============================
 
@@ -42,7 +43,11 @@ ${address}
 --------------------------------
 
 PROFESSIONAL SUMMARY
+--------------------------------
 
+TARGET POSITION
+
+${jobTitle}
 ${summary}
 
 --------------------------------
