@@ -14,7 +14,11 @@ const summary = document.getElementById("summary").value;
 const experience = document.getElementById("experience").value;
 const education = document.getElementById("education").value;
 const skills = document.getElementById("skills").value;
+const coreSkills = document.getElementById("coreSkills").value;
 
+const languages = document.getElementById("languages").value;
+
+const certifications = document.getElementById("certifications").value;
 const resume = `
 
 ==============================
@@ -58,7 +62,29 @@ ${education}
 SKILLS
 
 ${skills}
+--------------------------------
 
+CORE SKILLS
+
+${coreSkills}
+
+--------------------------------
+
+CERTIFICATIONS
+
+${certifications}
+
+--------------------------------
+
+LANGUAGES
+
+${languages}
+
+--------------------------------
+
+REFERENCES
+
+Available Upon Request
 `;
 
 localStorage.setItem("generatedResume", resume);
