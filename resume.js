@@ -3,7 +3,7 @@ const resumeForm = document.getElementById("resumeForm");
 console.log(resumeForm);
 alert(resumeForm ? "Form Found ✅" : "Form Not Found ❌");
 resumeForm.addEventListener("submit", function(e){
-
+alert("Generate Button Clicked");
 e.preventDefault();
 
 const fullName = document.getElementById("fullName").value;
