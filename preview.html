@@ -63,7 +63,10 @@ if(resume){
 
 preview.innerHTML = resume
 .replace(/\n/g,"<br>")
-.replace(/CANADIAN ATS RESUME/g,"<h1 style='color:#0d6efd;'>CANADIAN ATS RESUME</h1>")
+.replace(
+/CANADIAN ATS RESUME/g,
+"<div style='text-align:center;padding-bottom:20px;border-bottom:3px solid #0d6efd;'><h1 style='margin:0;color:#0d6efd;'>CANADIAN ATS RESUME</h1><p style='margin-top:10px;color:#666;'>Professional Resume - ATS Friendly Format</p></div>"
+)
 .replace(/PROFESSIONAL SUMMARY/g,"<h2 style='color:#0d6efd;'>Professional Summary</h2>")
 .replace(/WORK EXPERIENCE/g,"<h2 style='color:#0d6efd;'>Work Experience</h2>")
 .replace(/EDUCATION/g,"<h2 style='color:#0d6efd;'>Education</h2>")
