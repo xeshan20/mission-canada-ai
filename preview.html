@@ -53,11 +53,31 @@ font-size:16px;
 
 <script>
 
-const resume =
-localStorage.getItem("generatedResume");
+<script>
 
-document.getElementById("resumePreview").textContent =
-resume || "No Resume Found.";
+const resume = localStorage.getItem("generatedResume");
+
+const preview = document.getElementById("resumePreview");
+
+if(resume){
+
+preview.innerHTML = resume
+.replace(/\n/g,"<br>")
+.replace(/CANADIAN ATS RESUME/g,"<h1 style='color:#0d6efd;'>CANADIAN ATS RESUME</h1>")
+.replace(/PROFESSIONAL SUMMARY/g,"<h2 style='color:#0d6efd;'>Professional Summary</h2>")
+.replace(/WORK EXPERIENCE/g,"<h2 style='color:#0d6efd;'>Work Experience</h2>")
+.replace(/EDUCATION/g,"<h2 style='color:#0d6efd;'>Education</h2>")
+.replace(/SKILLS/g,"<h2 style='color:#0d6efd;'>Skills</h2>")
+.replace(/CORE SKILLS/g,"<h2 style='color:#0d6efd;'>Core Skills</h2>")
+.replace(/CERTIFICATIONS/g,"<h2 style='color:#0d6efd;'>Certifications</h2>")
+.replace(/LANGUAGES/g,"<h2 style='color:#0d6efd;'>Languages</h2>")
+.replace(/REFERENCES/g,"<h2 style='color:#0d6efd;'>References</h2>");
+
+}else{
+
+preview.innerHTML="<h2>No Resume Found</h2>";
+
+}
 
 </script>
 
