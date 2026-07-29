@@ -75,7 +75,21 @@ Apply Now
 
 const job =
 localStorage.getItem("selectedJob") || "Canada Job";
+const category =
+localStorage.getItem("searchCategory") || "";
 
+const title =
+document.getElementById("jobTitle");
+
+if(category){
+
+title.innerText = category;
+
+}else{
+
+title.innerText = job;
+
+}
 document.getElementById("jobTitle").innerText = job;
 
 function applyJob(){
