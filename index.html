@@ -138,7 +138,9 @@ Upload CV
 <input
 type="file"
 id="cvUpload"
-style="display:none;">
+accept=".pdf,.doc,.docx"
+style="display:none;"
+onchange="uploadCV(event)">
 
 <button onclick="window.location.href='resume.html'">
 Generate ATS Resume
