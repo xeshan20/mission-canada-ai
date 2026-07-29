@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+
+<title>Job Details</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f7fb;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px #ccc;
+max-width:800px;
+margin:auto;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+background:#000;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1 id="jobTitle"></h1>
+
+<p><b>Country:</b> Canada 🇨🇦</p>
+
+<p><b>LMIA:</b> Available</p>
+
+<p><b>Salary:</b> CAD $24 - $35/hour</p>
+
+<p><b>Status:</b> Hiring Now</p>
+
+<h3>Job Description</h3>
+
+<p>
+
+This position is suitable for international candidates seeking LMIA or Visa Sponsorship opportunities in Canada.
+
+</p>
+
+<button onclick="applyJob()">
+
+Apply Now
+
+</button>
+
+</div>
+
+<script>
+
+const job =
+localStorage.getItem("selectedJob") || "Canada Job";
+
+document.getElementById("jobTitle").innerText = job;
+
+function applyJob(){
+
+alert("✅ Application Submitted Successfully!");
+
+}
+
+</script>
+
+</body>
+
+</html>
