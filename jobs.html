@@ -76,7 +76,25 @@ document.getElementById("jobTitle").innerText = job;
 
 function applyJob(){
 
+const job = localStorage.getItem("selectedJob") || "Canada Job";
+
+let applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+applications.push({
+
+job: job,
+
+company: "Canadian Employer",
+
+status: "Applied"
+
+});
+
+localStorage.setItem("applications", JSON.stringify(applications));
+
 alert("✅ Application Submitted Successfully!");
+
+window.location.href="index.html";
 
 }
 
