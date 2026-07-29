@@ -422,3 +422,23 @@ alert("✅ CV Uploaded Successfully!");
 });
 
 }
+function searchJobs(){
+
+const category = document.getElementById("jobCategory").value;
+const location = document.getElementById("jobLocation").value;
+const lmia = document.getElementById("lmiaStatus").value;
+
+localStorage.setItem("searchCategory", category);
+localStorage.setItem("searchLocation", location);
+localStorage.setItem("searchLMIA", lmia);
+
+alert(
+"🔍 Searching...\n\n" +
+"Category: " + category +
+"\nLocation: " + location +
+"\nLMIA: " + lmia
+);
+
+window.location.href="jobs.html";
+
+}
