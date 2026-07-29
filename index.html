@@ -761,10 +761,43 @@ let category =
 document.getElementById("jobCategory").value;
 
 
+let location =
+document.getElementById("jobLocation").value;
+
+
+let lmia =
+document.getElementById("lmiaStatus").value;
+
+
+
+let matchedJobs = jobsData.filter(function(job){
+
+
+let categoryMatch =
+job.title === category;
+
+
+let locationMatch =
+location === "All Canada" || job.location === location;
+
+
+let lmiaMatch =
+job.lmia === lmia;
+
+
+
+return categoryMatch && locationMatch && lmiaMatch;
+
+
+});
+
+
+
 localStorage.setItem(
-"searchCategory",
-category
+"matchedJobs",
+JSON.stringify(matchedJobs)
 );
+
 
 
 window.location.href="jobs.html";
