@@ -396,3 +396,14 @@ list.innerHTML += "<li>❤️ " + job + "</li>";
 }
 
 loadSavedJobs();
+function findJobs(){
+
+alert("🔍 Searching Canada Jobs...");
+
+setTimeout(function(){
+
+window.location.href="jobs.html";
+
+},1000);
+
+}
