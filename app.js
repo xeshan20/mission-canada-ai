@@ -344,3 +344,10 @@ localStorage.setItem("uploadedCV", file.name);
 alert("✅ CV Uploaded Successfully!\n\nFile: " + file.name);
 
 }
+function viewJob(jobName){
+
+localStorage.setItem("selectedJob", jobName);
+
+window.location.href = "jobs.html";
+
+}
