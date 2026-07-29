@@ -42,7 +42,7 @@ font-size:16px;
 <div class="card">
 
 <h1 id="jobTitle"></h1>
-
+<div id="jobResults"></div>
 <p><b>Country:</b> Canada 🇨🇦</p>
 
 <p><b>LMIA:</b> Available</p>
@@ -73,67 +73,120 @@ Apply Now
 
 <script>
 
-const job =
-localStorage.getItem("selectedJob") || "Canada Job";
-const category =
-localStorage.getItem("searchCategory") || "";
+const matchedJobs =
+JSON.parse(localStorage.getItem("matchedJobs")) || [];
 
-const title =
-document.getElementById("jobTitle");
+const results =
+document.getElementById("jobResults");
 
-if(category){
 
-title.innerText = category;
+if(matchedJobs.length === 0){
+
+results.innerHTML = `
+<h3>No Matching Jobs Found</h3>
+<p>Please try another search.</p>
+`;
 
 }else{
 
-title.innerText = job;
 
-}
+matchedJobs.forEach(function(job){
 
 
-function applyJob(){
+results.innerHTML += `
 
-const job = localStorage.getItem("selectedJob") || "Canada Job";
+<div class="card">
 
-let applications = JSON.parse(localStorage.getItem("applications")) || [];
+<h2>${job.title}</h2>
 
-applications.push({
+<p>🇨🇦 Location: ${job.location}</p>
 
-job: job,
+<p>LMIA: ${job.lmia}</p>
 
-company: "Canadian Employer",
+<p>Salary: ${job.salary}</p>
 
-status: "Applied"
+<p>⭐ Match Score: ${job.match}%</p>
+
+
+<button onclick="applyJob('${job.title}')">
+Apply Now
+</button>
+
+
+<button onclick="saveJob('${job.title}')">
+❤️ Save Job
+</button>
+
+
+</div>
+
+`;
 
 });
 
-localStorage.setItem("applications", JSON.stringify(applications));
+}
+
+
+
+function applyJob(jobName){
+
+let applications =
+JSON.parse(localStorage.getItem("applications")) || [];
+
+
+applications.push({
+
+job: jobName,
+
+company:"Canadian Employer",
+
+status:"Applied"
+
+});
+
+
+localStorage.setItem(
+"applications",
+JSON.stringify(applications)
+);
+
 
 alert("✅ Application Submitted Successfully!");
 
-window.location.href="index.html";
-
 }
-function saveJob(){
 
-const job = localStorage.getItem("selectedJob") || "Canada Job";
 
-let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
 
-if(!savedJobs.includes(job)){
 
-savedJobs.push(job);
+function saveJob(jobName){
 
-localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+let savedJobs =
+JSON.parse(localStorage.getItem("savedJobs")) || [];
+
+
+if(!savedJobs.includes(jobName)){
+
+
+savedJobs.push(jobName);
+
+
+localStorage.setItem(
+"savedJobs",
+JSON.stringify(savedJobs)
+);
+
 
 alert("❤️ Job Saved Successfully!");
 
+
 }else{
+
 
 alert("⚠️ This job is already saved.");
 
+
 }
+
 
 }
 </script>
