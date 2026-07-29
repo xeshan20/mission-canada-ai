@@ -407,3 +407,18 @@ window.location.href="jobs.html";
 },1000);
 
 }
+const cvFile = document.getElementById("cvFile");
+
+if(cvFile){
+
+cvFile.addEventListener("change", function(){
+
+if(this.files.length > 0){
+
+alert("✅ CV Uploaded Successfully!");
+
+}
+
+});
+
+}
