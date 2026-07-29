@@ -101,7 +101,27 @@ alert("✅ Application Submitted Successfully!");
 window.location.href="index.html";
 
 }
+function saveJob(){
 
+const job = localStorage.getItem("selectedJob") || "Canada Job";
+
+let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
+
+if(!savedJobs.includes(job)){
+
+savedJobs.push(job);
+
+localStorage.setItem("savedJobs", JSON.stringify(savedJobs));
+
+alert("❤️ Job Saved Successfully!");
+
+}else{
+
+alert("⚠️ This job is already saved.");
+
+}
+
+}
 </script>
 
 </body>
