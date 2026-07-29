@@ -331,3 +331,16 @@ loadApplications();
 console.log("Mission Canada AI Ready 🚀");
 
 };
+function uploadCV(event){
+
+const file = event.target.files[0];
+
+if(!file){
+return;
+}
+
+localStorage.setItem("uploadedCV", file.name);
+
+alert("✅ CV Uploaded Successfully!\n\nFile: " + file.name);
+
+}
