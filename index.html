@@ -5,10 +5,12 @@
 
 <title>Mission Canada AI</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#f2f5f8;
 padding:20px;
 }
@@ -20,17 +22,7 @@ margin:15px 0;
 border-radius:15px;
 box-shadow:0 2px 8px #ccc;
 }
-<div class="card">
 
-<h3>❤️ Saved Jobs</h3>
-
-<ul id="savedJobsList">
-
-<li>No Saved Jobs</li>
-
-</ul>
-
-</div>
 button{
 background:#000;
 color:white;
@@ -39,10 +31,27 @@ border:none;
 border-radius:10px;
 width:100%;
 margin-top:10px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+opacity:0.85;
 }
 
 h1{
 text-align:center;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
 }
 
 .job{
@@ -51,57 +60,45 @@ padding-top:15px;
 margin-top:15px;
 }
 
+input,select{
+width:100%;
+padding:10px;
+margin-top:10px;
+box-sizing:border-box;
+}
+
 </style>
 
 </head>
-<div class="card">
 
-<h3>🔐 Login</h3>
-
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-style="width:100%;padding:12px;margin-top:10px;"
->
-
-<br><br>
-
-<input
-type="password"
-id="password"
-placeholder="Password"
-style="width:100%;padding:12px;"
->
-
-<br><br>
-
-<button id="signupBtn">Create Account</button>
-
-<button id="loginBtn">Login</button>
-
-<button id="logoutBtn">Logout</button>
-
-</div>
 
 <body>
+
+
 <header class="topbar">
 
 <div class="logo">
-🇨🇦 <span>Mission Canada AI</span>
+🇨🇦 Mission Canada AI
 </div>
 
-<div class="menu">
-<button id="themeBtn">🌙</button>
-</div>
+<button id="themeBtn">
+🌙
+</button>
 
 </header>
 
-<h1>🇨🇦 Mission Canada AI</h1>
+
+<h1>
+🇨🇦 Mission Canada AI
+</h1>
+
+
 
 <div class="card">
 
-<h2>Welcome Muhammad Zeeshan</h2>
+<h2>
+Welcome Muhammad Zeeshan
+</h2>
 
 <p>
 AI Job Assistant for Canada LMIA & Visa Sponsorship Jobs
@@ -109,73 +106,140 @@ AI Job Assistant for Canada LMIA & Visa Sponsorship Jobs
 
 </div>
 
+
+
+
 <div class="card">
 
-<h3>📊 Dashboard</h3>
+<h3>
+📊 Dashboard
+</h3>
 
-<p>🔎 Jobs Found:
+
+<p>
+🔎 Jobs Found:
 <span id="jobsFound">128</span>
 </p>
 
-<p>🇨🇦 LMIA Jobs:
+
+<p>
+🇨🇦 LMIA Jobs:
 <span id="lmiaJobs">37</span>
 </p>
 
-<p>⭐ High Match Jobs:
+
+<p>
+⭐ High Match Jobs:
 <span id="highMatchJobs">12</span>
 </p>
 
-<p>📨 Applications Sent:
+
+<p>
+📨 Applications Sent:
 <span id="applicationCount">0</span>
 </p>
 
+
 </div>
+
+
+
 
 <div class="card">
 
-<h3>⚙️ Actions</h3>
+<h3>
+⚙️ Actions
+</h3>
 
-<button onclick="window.location.href='#searchJobs'">
-Search Canada Jobs
+
+<button onclick="document.getElementById('searchJobs').scrollIntoView()">
+
+🔎 Search Canada Jobs
+
 </button>
+
+
 
 <button onclick="document.getElementById('cvUpload').click()">
-Upload CV
+
+📄 Upload CV
+
 </button>
+
 
 <input
 type="file"
 id="cvUpload"
 accept=".pdf,.doc,.docx"
 style="display:none;"
-onchange="uploadCV(event)">
+>
+
+
 
 <button onclick="window.location.href='resume.html'">
+
 Generate ATS Resume
+
 </button>
+
+
 
 <button onclick="window.location.href='coverletter.html'">
+
 Generate Cover Letter
+
 </button>
 
+
+
 <button onclick="window.location.href='jobs.html'">
+
 Application Tracker
+
 </button>
+
 
 </div>
 
+
+
+
+
+<div class="card">
+
+<h3>
+❤️ Saved Jobs
+</h3>
+
+
+<ul id="savedJobsList">
+
+<li>No Saved Jobs</li>
+
+</ul>
+
+
+</div>
 <div class="card">
 
 <h3>👤 My Profile</h3>
 
-<p><b>Name:</b> Muhammad Zeeshan</p>
+
+<p>
+<b>Name:</b> Muhammad Zeeshan
+</p>
+
 
 <p>
 <b>Experience:</b>
 13+ Years Manufacturing & Operations
 </p>
 
-<p><b>Skills:</b></p>
+
+<p>
+<b>Skills:</b>
+</p>
+
 
 <ul>
 
@@ -193,7 +257,12 @@ Application Tracker
 
 </ul>
 
-<p><b>Target Jobs:</b></p>
+
+
+<p>
+<b>Target Jobs:</b>
+</p>
+
 
 <ul>
 
@@ -207,14 +276,10 @@ Application Tracker
 
 <li>General Labourer</li>
 
-<li>Farm Worker</li>
+<li>Driver</li>
 
 </ul>
 
-<input
-type="file"
-id="cvFile"
-style="display:none;">
 
 <button onclick="document.getElementById('cvFile').click()">
 
@@ -222,11 +287,26 @@ style="display:none;">
 
 </button>
 
+
+<input
+type="file"
+id="cvFile"
+style="display:none;"
+>
+
+
 </div>
+
+
+
+
+
 
 <div class="card">
 
 <h3>🤖 AI Job Matches</h3>
+
+
 
 <div class="job">
 
@@ -238,11 +318,19 @@ style="display:none;">
 
 <p>Match Score: 92% ⭐</p>
 
+
 <button onclick="viewJob('Warehouse Supervisor')">
+
 View Job
+
 </button>
 
+
 </div>
+
+
+
+
 
 <div class="job">
 
@@ -254,11 +342,19 @@ View Job
 
 <p>Match Score: 88% ⭐</p>
 
+
 <button onclick="viewJob('Production Worker')">
+
 View Job
+
 </button>
 
+
 </div>
+
+
+
+
 
 <div class="job">
 
@@ -270,280 +366,602 @@ View Job
 
 <p>Match Score: 85% ⭐</p>
 
+
 <button onclick="viewJob('General Labourer')">
+
 View Job
+
 </button>
 
-</div>
 
 </div>
+
+
+
+
+
+<div class="job">
+
+<h4>Driver</h4>
+
+<p>🇨🇦 Canada</p>
+
+<p>LMIA: Available</p>
+
+<p>Match Score: 90% ⭐</p>
+
+
+<button onclick="viewJob('Driver')">
+
+View Job
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
 <div class="card" id="searchJobs">
+
 
 <h3>🔎 Search Canada Jobs</h3>
 
-<label>Job Category</label>
 
-<select style="width:100%;padding:10px;margin-top:10px;">
+<label>
+Job Category
+</label>
 
-<option>Warehouse Worker</option>
-<option>Warehouse Supervisor</option>
-<option>Production Worker</option>
-<option>Production Manager</option>
-<option>General Labourer</option>
-<option>Farm Worker</option>
 
-<select id="jobCategory" style="width:100%;padding:10px;margin-top:10px;">
+<select id="jobCategory">
 
-<br><br>
 
-<label>Location</label>
+<option value="Warehouse Worker">
+Warehouse Worker
+</option>
 
-<select style="width:100%;padding:10px;margin-top:10px;">
 
-<option>All Canada</option>
-<option>Alberta</option>
-<option>Ontario</option>
-<option>British Columbia</option>
-<option>Quebec</option>
-<option>Prince Edward Island</option>
+<option value="Warehouse Supervisor">
+Warehouse Supervisor
+</option>
 
-<select id="jobLocation" style="width:100%;padding:10px;margin-top:10px;">
 
-<br><br>
+<option value="Production Worker">
+Production Worker
+</option>
 
-<label>LMIA Status</label>
 
-<select style="width:100%;padding:10px;margin-top:10px;">
+<option value="Production Manager">
+Production Manager
+</option>
 
-<option>LMIA Available</option>
-<option>LMIA Requested</option>
-<option>Visa Sponsorship</option>
 
-<select id="lmiaStatus" style="width:100%;padding:10px;margin-top:10px;">
+<option value="General Labourer">
+General Labourer
+</option>
+
+
+<option value="Driver">
+Driver
+</option>
+
+
+<option value="Farm Worker">
+Farm Worker
+</option>
+
+
+</select>
+
+
+
+
+
+<br>
+
+
+<label>
+Location
+</label>
+
+
+<select id="jobLocation">
+
+
+<option value="All Canada">
+All Canada
+</option>
+
+
+<option value="Alberta">
+Alberta
+</option>
+
+
+<option value="Ontario">
+Ontario
+</option>
+
+
+<option value="British Columbia">
+British Columbia
+</option>
+
+
+<option value="Quebec">
+Quebec
+</option>
+
+
+<option value="Prince Edward Island">
+Prince Edward Island
+</option>
+
+
+</select>
+
+
+
+
+
+
+<br>
+
+
+<label>
+LMIA Status
+</label>
+
+
+<select id="lmiaStatus">
+
+
+<option value="LMIA Available">
+LMIA Available
+</option>
+
+
+<option value="LMIA Requested">
+LMIA Requested
+</option>
+
+
+<option value="Visa Sponsorship">
+Visa Sponsorship
+</option>
+
+
+</select>
+
+
+
+
 
 <button onclick="searchJobs()">
+
 Find Matching Jobs
+
 </button>
+
+
+</div>
 <div class="card">
 
 <h3>📋 Matching Job Results</h3>
 
+
 <div class="job">
 
 <h4>Warehouse Supervisor</h4>
+
 <p>🇨🇦 Alberta, Canada</p>
+
 <p>LMIA: Available</p>
+
 <p>Match Score: 92% ⭐</p>
 
-<button>Apply</button>
+
+<button onclick="viewJob('Warehouse Supervisor')">
+
+Apply
+
+</button>
+
 
 </div>
+
+
+
+
 
 <div class="job">
 
 <h4>Production Worker</h4>
+
 <p>🇨🇦 Ontario, Canada</p>
+
 <p>LMIA: Requested</p>
+
 <p>Match Score: 88% ⭐</p>
 
-<button>Apply</button>
+
+<button onclick="viewJob('Production Worker')">
+
+Apply
+
+</button>
+
 
 </div>
 
+
+
+
+
 <div class="job">
 
-<h4>General Labourer</h4>
-<p>🇨🇦 Prince Edward Island</p>
-<p>LMIA: Available</p>
-<p>Match Score: 85% ⭐</p>
+<h4>Driver</h4>
 
-<button>Apply</button>
+<p>🇨🇦 Canada</p>
+
+<p>LMIA: Available</p>
+
+<p>Match Score: 90% ⭐</p>
+
+
+<button onclick="viewJob('Driver')">
+
+Apply
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
 <div class="card">
 
 <h3>📌 Application Tracker</h3>
 
-<p>Track your Canada job applications</p>
 
-<table id="applicationTable" style="width:100%; border-collapse:collapse;">
+<p>
+Track your Canada job applications
+</p>
 
-<tr>
-<th style="border:1px solid #ddd;padding:10px;">Job</th>
-<th style="border:1px solid #ddd;padding:10px;">Company</th>
-<th style="border:1px solid #ddd;padding:10px;">Status</th>
-</tr>
 
-<tr>
-<td style="border:1px solid #ddd;padding:10px;">
-Warehouse Supervisor
-</td>
-
-<td style="border:1px solid #ddd;padding:10px;">
-Company Name
-</td>
-
-<td style="border:1px solid #ddd;padding:10px;">
-Applied
-</td>
-
-</tr>
+<table id="applicationTable" style="width:100%;border-collapse:collapse;">
 
 <tr>
 
-<td style="border:1px solid #ddd;padding:10px;">
-Production Worker
-</td>
+<th style="border:1px solid #ddd;padding:10px;">
+Job
+</th>
 
-<td style="border:1px solid #ddd;padding:10px;">
-Company Name
-</td>
 
-<td style="border:1px solid #ddd;padding:10px;">
-Interview
-</td>
+<th style="border:1px solid #ddd;padding:10px;">
+Company
+</th>
+
+
+<th style="border:1px solid #ddd;padding:10px;">
+Status
+</th>
 
 </tr>
+
 
 </table>
 
-<button>Add New Application</button>
+
+</div>
+
+
+
+
+
+
 <div class="card">
 
 <h3>➕ Add New Application</h3>
 
-<label>Job Title</label>
 
-<input 
-type="text"
+<label>
+Job Title
+</label>
+
+
+<input
+id="newJob"
 placeholder="Example: Warehouse Worker"
-style="width:100%;padding:10px;margin-top:10px;"
 >
 
-<br><br>
 
-<label>Company Name</label>
 
-<input 
-type="text"
-placeholder="Company"
-style="width:100%;padding:10px;margin-top:10px;"
+
+<label>
+Company Name
+</label>
+
+
+<input
+id="newCompany"
+placeholder="Company Name"
 >
 
-<br><br>
 
-<label>Status</label>
 
-<select style="width:100%;padding:10px;margin-top:10px;">
 
-<option>Applied</option>
-<option>Interview</option>
-<option>Offer</option>
-<option>Rejected</option>
-<option>Follow Up</option>
+<label>
+Status
+</label>
+
+
+<select id="newStatus">
+
+<option>
+Applied
+</option>
+
+<option>
+Interview
+</option>
+
+<option>
+Offer
+</option>
+
+<option>
+Rejected
+</option>
+
+<option>
+Follow Up
+</option>
+
 
 </select>
 
-<button onclick="saveApplication()">Save Application</button>
+
+
+<button onclick="saveApplication()">
+
+Save Application
+
+</button>
+
 
 </div>
 
-</div>
-</div>
 
-</div>
 
-</div>
+
+
 
 <script>
 
-function saveApplication(){
 
-let job = document.querySelector('input[placeholder="Example: Warehouse Worker"]').value;
+function searchJobs(){
 
-let company = document.querySelector('input[placeholder="Company"]').value;
+let category =
+document.getElementById("jobCategory").value;
 
-let status = document.querySelector('select').value;
 
-if(job==""){
-alert("Please enter job title");
-return;
+localStorage.setItem(
+"searchCategory",
+category
+);
+
+
+window.location.href="jobs.html";
+
+
 }
 
-let application = {
-job: job,
-company: company,
-status: status
-};
 
-let applications = JSON.parse(localStorage.getItem("applications")) || [];
 
-applications.push(application);
 
-localStorage.setItem("applications", JSON.stringify(applications));
+function viewJob(jobName){
+
+
+localStorage.setItem(
+"selectedJob",
+jobName
+);
+
+
+window.location.href="jobs.html";
+
+
+}
+
+
+
+
+
+
+
+function saveApplication(){
+
+
+let job =
+document.getElementById("newJob").value;
+
+
+let company =
+document.getElementById("newCompany").value;
+
+
+let status =
+document.getElementById("newStatus").value;
+
+
+
+if(job==""){
+
+alert("Please enter job title");
+
+return;
+
+}
+
+
+
+let applications =
+JSON.parse(localStorage.getItem("applications")) || [];
+
+
+
+applications.push({
+
+job:job,
+
+company:company,
+
+status:status
+
+});
+
+
+
+localStorage.setItem(
+"applications",
+JSON.stringify(applications)
+);
+
+
 
 alert("Application Saved Successfully ✅");
 
+
+
+loadApplications();
+
+
 }
+
+
+
+
+
+
 
 function loadApplications(){
 
-let applications = JSON.parse(localStorage.getItem("applications")) || [];
 
-let table = document.getElementById("applicationTable");
+let applications =
+JSON.parse(localStorage.getItem("applications")) || [];
+
+
+
+let table =
+document.getElementById("applicationTable");
+
+
 
 if(!table){
+
 return;
+
 }
 
-table.innerHTML = "";
+
+
+table.innerHTML = `
+
+<tr>
+
+<th style="border:1px solid #ddd;padding:10px;">
+Job
+</th>
+
+<th style="border:1px solid #ddd;padding:10px;">
+Company
+</th>
+
+<th style="border:1px solid #ddd;padding:10px;">
+Status
+</th>
+
+</tr>
+
+`;
+
+
 
 applications.forEach(function(app){
 
-let row = `
+
+
+table.innerHTML += `
+
 <tr>
 
 <td style="border:1px solid #ddd;padding:10px;">
 ${app.job}
 </td>
 
+
 <td style="border:1px solid #ddd;padding:10px;">
 ${app.company}
 </td>
+
 
 <td style="border:1px solid #ddd;padding:10px;">
 ${app.status}
 </td>
 
-<td style="border:1px solid #ddd;padding:10px;">
-<button onclick="deleteApplication(${applications.indexOf(app)})">
-Delete
-</button>
-</td>
 
 </tr>
+
 `;
 
-table.innerHTML += row;
-document.getElementById("applicationCount").innerText = applications.length;
+
+
 });
 
-}
 
-function deleteApplication(index){
 
-let applications = JSON.parse(localStorage.getItem("applications")) || [];
+document.getElementById("applicationCount").innerText =
+applications.length;
 
-applications.splice(index,1);
 
-localStorage.setItem("applications", JSON.stringify(applications));
-
-loadApplications();
 
 }
+
+
+
+
+
 window.onload = loadApplications;
-</script> 
-  <script type="module" src="firebase.js"></script>
+
+
+
+</script>
+
+
+
+
+
+<script type="module" src="firebase.js"></script>
+
 <script src="app.js"></script>
-  
+
+
 </body>
 
 </html>
