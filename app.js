@@ -351,3 +351,20 @@ localStorage.setItem("selectedJob", jobName);
 window.location.href = "jobs.html";
 
 }
+function updateDashboard(){
+
+let applications =
+JSON.parse(localStorage.getItem("applications")) || [];
+
+const count =
+document.getElementById("applicationCount");
+
+if(count){
+
+count.innerText = applications.length;
+
+}
+
+}
+
+updateDashboard();
