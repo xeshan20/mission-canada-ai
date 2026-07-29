@@ -368,3 +368,31 @@ count.innerText = applications.length;
 }
 
 updateDashboard();
+function loadSavedJobs(){
+
+const list = document.getElementById("savedJobsList");
+
+if(!list) return;
+
+const savedJobs =
+JSON.parse(localStorage.getItem("savedJobs")) || [];
+
+if(savedJobs.length === 0){
+
+list.innerHTML = "<li>No Saved Jobs</li>";
+
+return;
+
+}
+
+list.innerHTML = "";
+
+savedJobs.forEach(function(job){
+
+list.innerHTML += "<li>❤️ " + job + "</li>";
+
+});
+
+}
+
+loadSavedJobs();
